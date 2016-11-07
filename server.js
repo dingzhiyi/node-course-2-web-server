@@ -1,7 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-
+//set the port for both heroku and local
+const port = process.env.PORT || 3000;
 var app = express();
 //加上————dirname是因为只能读取绝对路径
 //注册模板
@@ -54,6 +55,6 @@ app.get('/bad',(req,res)=>{
   });
 });
 //在listen里面加上console。log可以在console里面写入下述console
-app.listen(3000,()=>{
-  console.log('Server is up on port 3000');
+app.listen(port,()=>{
+  console.log(`Server is up on port ${port}`);
 });
